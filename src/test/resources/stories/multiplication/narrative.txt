@@ -1,0 +1,4 @@
+Multiplication
+In order to get the product
+As an end user
+I want to be able to multiply two numbers
