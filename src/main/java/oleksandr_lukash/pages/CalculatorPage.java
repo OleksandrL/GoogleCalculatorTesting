@@ -5,7 +5,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import net.thucydides.core.annotations.*;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -28,23 +27,27 @@ public class CalculatorPage extends PageObject {
     
     @FindBy(id="cwles")
     private WebElementFacade historyBar;
+    
+    @FindBy(id="cwmcwd")
+    private WebElementFacade calculator;
+    
+    @FindBy(id="lst-ib")
+    private WebElementFacade searchBar;
 
     @WhenPageOpens
     public void openCalculator(){
-        $("#lst-ib").sendKeys("1-1", Keys.ENTER);
-        WebDriverWait wait = new WebDriverWait(getDriver(), 15);
-        wait.until(ExpectedConditions.visibilityOf(inputBar));
+        searchBar.sendKeys("1-1", Keys.ENTER);
+        waitFor(ExpectedConditions.visibilityOf(inputBar));
     }
     
     public void ascertainCalculatorIsOpened(){
-    	if(!$("#cwmcwd").isPresent()){
+    	if(!calculator.isPresent()){
     		this.open();
     	}
     }
     
     public void cleareCalculator(){
-    	WebDriverWait wait = new WebDriverWait(getDriver(), 15);
-        wait.until(ExpectedConditions.visibilityOf(cleareButton));
+        waitFor(ExpectedConditions.visibilityOf(cleareButton));
     	cleareButton.click();
     }
     

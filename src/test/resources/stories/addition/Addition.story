@@ -10,17 +10,13 @@ Given the user goes on the Google Calculator page
 When the user performs '-20 + 36.5' using button interface
 Then the user should see the result '16.5'
 
-Scenario: Add negative and positive numbers
+Scenario: Add
 Given the user is on the Google Calculator page
-When the user performs '-25 + 35.5' using keyboard
-Then the user should see the result '10.5'
+When the user performs 'expression' using keyboard
+Then the user should see the result 'result'
 
-Scenario: Add positive and negative numbers
-Given the user is on the Google Calculator page
-When the user performs '25.0 + -25' using keyboard
-Then the user should see the result '0'
-
-Scenario: Add some number and zero
-Given the user is on the Google Calculator page
-When the user performs '-20 + 0.0' using keyboard
-Then the user should see the result '-20'
+Examples:
+|expression|result|
+|-25 + 35.5|10.5|
+|25.0 + -25|0   |
+|-20 + 0.0 |-20 |

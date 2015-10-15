@@ -10,17 +10,13 @@ Given the user goes on the Google Calculator page
 When the user performs '-14.8 − 9.7' using button interface
 Then the user should see the result '-24.5'
 
-Scenario: Subtract some number from zero
+Scenario: Subtract
 Given the user is on the Google Calculator page
-When the user performs '0.0 - 20' using keyboard
-Then the user should see the result '-20'
+When the user performs 'expression' using keyboard
+Then the user should see the result 'result'
 
-Scenario: Subtract one number from another using two minuses
-Given the user is on the Google Calculator page
-When the user performs '20 - -20.0' using keyboard
-Then the user should see the result '0'
-
-Scenario: "Subtract" positive number with a sign from another
-Given the user is on the Google Calculator page
-When the user performs '20.0 - +20' using keyboard
-Then the user should see the result '40'
+Examples:
+|expression|result|
+|0.0 - 20  |-20   |
+|20 - -20.0|0     |
+|20.0 - +20|40    |
